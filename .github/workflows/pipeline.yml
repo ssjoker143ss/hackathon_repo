@@ -11,10 +11,9 @@ jobs:
   build-and-scan:
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE: sibhanayak/pythonapp
+      DOCKER_IMAGE: saishubham0209/pythonapp
       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
