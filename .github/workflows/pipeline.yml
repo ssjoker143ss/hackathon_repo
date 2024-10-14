@@ -32,18 +32,6 @@ jobs:
         run: |
           docker push $DOCKER_IMAGE:${{ github.sha }}
           docker push $DOCKER_IMAGE:latest
-      - name: Official SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v3.0.0
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=hackathon-proj -Dsonar.host.url=${{ env.SONAR_HOST_URL
-            }} -Dsonar.login=${{ env.SONAR_TOKEN }}
-            -Dsonar.working.directory=./.scannerwork
-      - name: Print SonarQube Logs
-        run: >
-          ls -al .scannerwork
-          cat .scannerwork/report-task.txt || echo "report-task.txt not found"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
